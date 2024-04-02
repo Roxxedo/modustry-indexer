@@ -1,0 +1,29 @@
+name: Automatic Updates
+
+on:
+  schedule:
+    - cron: "0 */2 * * *"
+  push:
+    branches:
+      - code
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up NodeTS
+      uses: actions/setup-node@v4
+      with:
+        node-version: 21
+    - name: Build and run
+      run: npm run build:run
+    - name: Push changes
+      run: |
+        git config --global user.email "cli@github.com"
+        git config --global user.name "Github Actions"
+        git add servers.json
+        git commit --allow-empty -m "[auto-update]"
+        git push https://Roxxedo:${{ secrets.API_TOKEN_GITHUB }}@github.com/Roxxedo/mindustry-indexer
