@@ -26,4 +26,4 @@ jobs:
         git config --global user.name "Github Actions"
         git add servers.json
         git commit --allow-empty -m "[auto-update]"
-        git push https://Roxxedo:${{ secrets.API_TOKEN_GITHUB }}@github.com/Roxxedo/mindustry-indexer
+        git push https://Roxxedo:${{ secrets.API_TOKEN_GITHUB }}@github.com/Roxxedo/modustry-indexer
