@@ -26,6 +26,7 @@ jobs:
       run: |
         git config --global user.email "cli@github.com"
         git config --global user.name "Github Actions"
-        git add *
+        git add mods.json
+        git add servers.json
         git commit --allow-empty -m "[auto-update]"
         git push https://Roxxedo:${{ secrets.API_TOKEN_GITHUB }}@github.com/Roxxedo/modustry-indexer
