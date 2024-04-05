@@ -19,6 +19,8 @@ jobs:
       with:
         node-version: 21
     - name: Install dependencies and build and run
+      env:
+        githubtoken: "Bearer ${{ secrets.GITHUB_TOKEN }}"
       run: npm install && npm run build:run
     - name: Push changes
       run: |
